@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "ZjA6jYwH0D782bi3cBj5xzS/OrGt1f9eNect18dhgOQ=",
+  "Source": "DotNetHttpClient",
+  "BasePath": "_content/DotNetHttpClient",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "DotNetHttpClient\\wwwroot",
+      "Source": "DotNetHttpClient",
+      "ContentRoot": "C:\\Users\\a1788452\\source\\repos\\DotNetHttpClient\\DotNetHttpClient\\wwwroot\\",
+      "BasePath": "_content/DotNetHttpClient",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\a1788452\\source\\repos\\DotNetHttpClient\\DotNetHttpClient\\wwwroot\\css\\site.css",
+      "SourceId": "DotNetHttpClient",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a1788452\\source\\repos\\DotNetHttpClient\\DotNetHttpClient\\wwwroot\\",
+      "BasePath": "_content/DotNetHttpClient",
+      "RelativePath": "css/site.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\site.css"
+    }
+  ]
+}

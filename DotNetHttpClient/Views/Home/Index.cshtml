@@ -1,0 +1,76 @@
+﻿<h1>Product List</h1>
+<div id="product-list"></div>
+
+<!-- Modal Structure -->
+<div id="image-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <img id="modal-image" src="" alt="Product Image">
+    </div>
+</div>
+
+<script>
+    // Fetch product data from the MVC API
+    fetch('/products')  // API route defined in the controller
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();  // Parse the JSON from the response
+        })
+        .then(data => {
+            displayProducts(data);  // Call a function to display the products
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+
+    // Function to display the products in the HTML
+    function displayProducts(products) {
+        const productList = document.getElementById('product-list');
+        productList.innerHTML = '';  // Clear any existing content
+
+        products.forEach(product => {
+            const productItem = `
+                            <div class="product">
+                                <img src="${product.image}" alt="${product.title}" class="product-image">
+                                <h3>${product.title}</h3>
+                                <p>${product.description}</p>
+                                <p class="product-price">$${product.price}</p>
+                            </div>
+                        `;
+            productList.innerHTML += productItem;
+        });
+
+        // Add event listener to images to open modal
+        const productImages = document.querySelectorAll('.product-image');
+        productImages.forEach(image => {
+            image.addEventListener('click', (event) => {
+                openModal(event.target.src);
+            });
+        });
+    }
+
+    // Modal functionality
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-image');
+    const closeModalButton = document.querySelector('.close');
+
+    // Open the modal and set the image
+    function openModal(imageSrc) {
+        modalImg.src = imageSrc;
+        modal.style.display = 'flex';
+    }
+
+    // Close the modal
+    closeModalButton.onclick = function () {
+        modal.style.display = 'none';
+    }
+
+    // Close the modal if the user clicks outside the image
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>
